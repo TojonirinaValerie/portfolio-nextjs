@@ -1,3 +1,4 @@
+"use client";
 // import DestructEffect from "@/components/destruct-effect";
 import AboutSection from "@/components/about/about";
 import ContactSection from "@/components/contact/contacts";
@@ -7,10 +8,18 @@ import Header from "@/components/header/header";
 import Hero from "@/components/hero/hero";
 import ProjectsSection from "@/components/projects/projects";
 import SkillsSection from "@/components/skills/skills";
+import SmoothScrollbarWrapper from "@/components/smooth-scrollbar";
+import { useEffect } from "react";
 
 export default function Home() {
+  // useEffect(() => {
+  //   document.addEventListener("scroll", () => {
+  //     console.log("scroll");
+  //   });
+  // }, []);
+
   return (
-    <main className="flex flex-row w-full min-h-screen">
+    <main className="relative overflow-y-hidden">
       <GridOverlay />
       <Header />
       <div className="h-full flex flex-col w-full">

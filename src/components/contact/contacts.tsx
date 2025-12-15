@@ -1,6 +1,6 @@
 const ContactSection = () => {
   return (
-    <div>
+    <div className="w-full h-screen">
       <h1>Contact</h1>
     </div>
   );

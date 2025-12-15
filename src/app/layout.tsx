@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Montserrat } from "next/font/google";
 import "./globals.css";
+import { ReactLenis } from "@/lib/lenis";
+import { LenisOptions } from "lenis";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -21,13 +23,19 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const lenisOption: LenisOptions = {
+    duration: 2,
+  };
+
   return (
     <html lang="en">
-      <body
-        className={`${inter.variable} ${montserrat.variable} antialiased w-full min-h-screen overflow-x-hidden font-montserrat`}
-      >
-        {children}
-      </body>
+      <ReactLenis root options={lenisOption}>
+        <body
+          className={`${inter.variable} ${montserrat.variable} antialiased w-full min-h-screen font-montserrat`}
+        >
+          {children}
+        </body>
+      </ReactLenis>
     </html>
   );
 }

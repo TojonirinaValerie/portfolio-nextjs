@@ -49,6 +49,7 @@
   --text-xl: 1.8rem;
   --color-blue: var(--blue);
   --color-red: var(--rouge);
+  --spacing-lg: 1200px;
 }
 
 :root {
@@ -86,6 +87,7 @@
   --sidebar-ring: oklch(0.705 0.015 286.067);
   --blue: #1a2ffb;
   --rouge: #ea1538;
+  --section-width: 1200px;
 }
 
 .dark {
@@ -122,6 +124,7 @@
   --sidebar-ring: oklch(0.552 0.016 285.938);
   --blue: #1a2ffb;
   --rouge: #ea1538;
+  --section-width: 1200px;
 }
 
 @layer base {
@@ -134,8 +137,24 @@
   }
 }
 
-/* #hero-card {
-  clip-path: path(
-    "M 0 60 A 10 10 0 0 1 10 50 L 40 50 A 10 10 0 0 0 50 40 L 50 10 A 10 10 0 0 1 60 0 L 90 0 A 10 10 0 0 1 100 10 L 100 90 A 10 10 0 0 1 90 100 L 10 100 A 10 10 0 0 1 0 90 Z"
-  );
+/* .scrollbar-track {
+  background-color: transparent !important;
+}
+
+.scrollbar-track-y {
+  width: 12px !important;
+}
+
+.scrollbar-thumb {
+  width: 12px !important;
+  background-color: black !important;
+  border-radius: 0 !important;
 } */
+@keyframes rotateInfinite {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
