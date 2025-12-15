@@ -26,10 +26,10 @@ export default function Home() {
         <Hero />
         <div className="bg-background mt-[100vh] z-10">
           <AboutSection />
-          <SkillsSection />
+          {/* <SkillsSection />
           <ExperienceSection />
           <ProjectsSection />
-          <ContactSection />
+          <ContactSection /> */}
         </div>
       </div>
     </main>

@@ -11,27 +11,29 @@ const AboutSection = () => {
         </h2>
         <article className="flex flex-col flex-2 gap-10">
           <p className="font-medium text-lg">
-            Depuis toujours, je suis passionné par l’informatique et les
-            innovations technologiques. Cette passion m’a naturellement conduit
-            vers le développement web, où je peux combiner logique, créativité
-            et résolution de problèmes
+            Je suis TOJONIRINA Tsilavina Valerie, développeur logiciel, avec une
+            expertise en développement front-end et back-end, passionné par la
+            conception d’applications modernes, performantes et centrées sur
+            l’utilisateur.
           </p>
           <div className="flex flex-row gap-6">
             <div className="rounded-sm overflow-hidden flex-1">
               <Image
-                src="/assets/me.jpg"
+                src="/assets/me1.png"
                 alt=""
                 className="w-full h-auto aspect-[3/4] object-cover"
-                width={800}
-                height={800}
+                width={2000}
+                height={2000}
               />
             </div>
             <div className="flex-2 text-md flex flex-col gap-3">
               <p>
-                En tant que développeur Fullstack, j’aime travailler aussi bien
-                sur le front-end pour offrir une interface fluide et agréable,
-                que sur le back-end pour assurer la performance et la fiabilité
-                des applications.
+                Au cours de mes projets académiques et personnels, j’ai
+                développé des solutions complètes en utilisant des technologies
+                telles que React, Next.js, Node.js, TypeScript et ASP.NET Core.
+                J’accorde une importance particulière à la qualité du code, à la
+                maintenabilité et au respect des bonnes pratiques du
+                développement logiciel.
               </p>
               <p>
                 Je suis constamment à la recherche de nouveaux défis pour
