@@ -3,7 +3,8 @@
 // import { particlesConfig } from "@/lib/particles-config";
 import { useCallback } from "react";
 import Particles from "react-tsparticles";
-import type { Container, Engine } from "tsparticles-engine";
+// import type { Container, Engine } from "tsparticles-engine";
+import type { Engine } from "tsparticles-engine";
 import { loadSlim } from "tsparticles-slim";
 
 const ParticlesBackground: React.FC = () => {
@@ -12,7 +13,7 @@ const ParticlesBackground: React.FC = () => {
   }, []);
 
   const particlesLoaded = useCallback(
-    async (container: Container | undefined) => {},
+    async () => {},
     []
   );
 

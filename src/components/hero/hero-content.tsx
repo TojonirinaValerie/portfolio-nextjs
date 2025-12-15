@@ -7,9 +7,9 @@ const socialLink = [
     icon: "mdi:facebook",
     url: "https://www.facebook.com/tsilavina.tojonirina/",
   },
-  { name: "linkedin", icon: "mdi:linkedin", url: "" },
-  { name: "github", icon: "mdi:github", url: "" },
-  { name: "discord", icon: "mdi:discord", url: "" },
+  { name: "linkedin", icon: "mdi:linkedin", url: "https://www.linkedin.com/in/tsilavina-valerie-tojonirina-701245222/" },
+  { name: "github", icon: "mdi:github", url: "https://github.com/TojonirinaValerie" },
+  { name: "discord", icon: "mdi:discord", url: "https://discord.com/users/1115500456089763840" },
 ];
 const HeroContent = () => {
   return (
