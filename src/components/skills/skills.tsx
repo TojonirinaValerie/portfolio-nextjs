@@ -1,9 +1,13 @@
 import Image from "next/image";
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 
+type SkillType = {
+  name: string;
+  icon: string;
+};
 const SkillsSection = () => {
-  const [radius, setRadius] = useState(window.innerHeight/1.2);
-  const skills = [
+  // const [radius, setRadius] = useState(window.innerHeight / 1.2);
+  const skills: SkillType[] = [
     { name: "React", icon: "/React.svg" },
     { name: "Angular", icon: "/Angular.svg" },
     { name: "Next.js", icon: "/Next.js.svg" },
@@ -19,15 +23,46 @@ const SkillsSection = () => {
     { name: "TypeScript", icon: "/TypeScript.svg" },
   ];
 
-  useEffect(() => {
-    const onResize = () => setRadius(window.innerHeight/1.2);
+  // useEffect(() => {
+  //   const onResize = () => setRadius(window.innerHeight / 1.2);
 
-    window.addEventListener("resize", onResize);
-    return () => window.removeEventListener("resize", onResize);
-  }, []);
-  
+  //   window.addEventListener("resize", onResize);
+  //   return () => window.removeEventListener("resize", onResize);
+  // }, []);
+
+  const SkillItem: React.FC<{ skill: SkillType }> = ({ skill }) => {
+    return (
+      <div className="flex flex-col items-center gap-2">
+        <Image
+          src={`/assets/skills${skill.icon}`}
+          className="w-18 h-18"
+          width={200}
+          height={200}
+          alt=""
+          style={{}}
+        />
+        <p>{skill.name}</p>
+      </div>
+    );
+  };
+
   return (
-    <div
+    <>
+      <div className="flex flex-col justify-center items-center py-20 h-screen">
+        <div className="flex flex-col items-center gap-4">
+          <h1 className="text-7xl font-medium text-center">Mes competence</h1>
+          <p className="text-xl max-w-[800px] text-center text-gray-700">
+            Mon stack technique évolue avec les tendances du web. Voici les
+            outils que j&apos;utilise au quotidien.
+          </p>
+        </div>
+        <div className="flex flex-row gap-20 justify-center items-center flex-wrap max-w-[1200px] p-8 mt-8">
+          {skills.map((skill) => (
+            <SkillItem skill={skill} key={skill.name}/>
+          ))}
+        </div>
+      </div>
+      {/* <div
       className="relative min-h-screen w-full flex flex-col justify-center items-center overflow-hidden  "
       id="#skills"
     >
@@ -70,7 +105,8 @@ const SkillsSection = () => {
           })}
         </div>
       </div>
-    </div>
+    </div> */}
+    </>
   );
 };
 

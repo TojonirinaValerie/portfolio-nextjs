@@ -3,6 +3,7 @@ import { Inter, Montserrat } from "next/font/google";
 import "./globals.css";
 import { ReactLenis } from "@/lib/lenis";
 import { LenisOptions } from "lenis";
+import SplashScreenManager from "@/components/splash-screen/splash-screen-manager";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -24,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const lenisOption: LenisOptions = {
-    duration: 2,
+    duration: 4,
   };
 
   return (
@@ -33,7 +34,7 @@ export default function RootLayout({
         <body
           className={`${inter.variable} ${montserrat.variable} antialiased w-full min-h-screen font-montserrat`}
         >
-          {children}
+          <SplashScreenManager>{children}</SplashScreenManager>
         </body>
       </ReactLenis>
     </html>

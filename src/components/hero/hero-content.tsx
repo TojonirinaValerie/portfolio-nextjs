@@ -1,16 +1,39 @@
 import { Icon } from "@iconify/react";
 import { Button } from "../ui/button";
 
-const socialLink = [
+export const socialLink = [
+  {
+    name: "gmail",
+    icon: "basil:gmail-solid",
+    url: "mailto:tsilavinatojo01@gmail.com",
+    pseudo: "tsilavinatojo01@gmail.com",
+  },
   {
     name: "facebook",
     icon: "mdi:facebook",
     url: "https://www.facebook.com/tsilavina.tojonirina/",
+    pseudo: "Tsilavina Valerie Tojonirina",
   },
-  { name: "linkedin", icon: "mdi:linkedin", url: "https://www.linkedin.com/in/tsilavina-valerie-tojonirina-701245222/" },
-  { name: "github", icon: "mdi:github", url: "https://github.com/TojonirinaValerie" },
-  { name: "discord", icon: "mdi:discord", url: "https://discord.com/users/1115500456089763840" },
+  {
+    name: "linkedin",
+    icon: "mdi:linkedin",
+    url: "https://www.linkedin.com/in/tsilavina-valerie-tojonirina-701245222/",
+    pseudo: "Tsilavina Valerie Tojonirina",
+  },
+  {
+    name: "github",
+    icon: "mdi:github",
+    url: "https://github.com/TojonirinaValerie",
+    pseudo: "Tojonirina Tsilavina Valerie",
+  },
+  {
+    name: "discord",
+    icon: "mdi:discord",
+    url: "https://discord.com/users/1115500456089763840",
+    pseudo: "tojonirina",
+  },
 ];
+
 const HeroContent = () => {
   return (
     <main className=" text-white flex flex-col items-center justify-center h-full w-full border">
