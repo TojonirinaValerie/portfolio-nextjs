@@ -14,12 +14,11 @@ const AboutSection = () => {
 
   useEffect(() => {
     setAboutRef(about);
-  }, [about]);
+  }, [about, setAboutRef]);
 
   useEffect(() => {
     gsap.from(ligne.current, {
       width: 0,
-      // ease: "back.out",
       scrollTrigger: {
         trigger: ligne.current,
         start: "top 80%",
@@ -65,25 +64,6 @@ const AboutSection = () => {
         },
       }
     );
-
-    // gsap.fromTo(
-    //   sectionRef.current,
-    //   {},
-    //   {
-    //     x: -200,
-    //     // y: 400,
-    //     opacity: 1,
-    //     scrollTrigger: {
-    //       trigger: sectionRef.current,
-    //       start: "top 50%",
-    //       end: "bottom 0%",
-    //       markers: true,
-    //       toggleActions: "play none none reverse",
-    //       scrub: true,
-
-    //     },
-    //   }
-    // );
   }, []);
 
   return (
@@ -100,10 +80,10 @@ const AboutSection = () => {
           </h2>
           <article className="flex flex-col flex-2 gap-10">
             <p className="font-medium text-lg">
-              Je m'appelle TOJONIRINA Tsilavina Valerie, développeur logiciel,
+              Je m&apos;appelle TOJONIRINA Tsilavina Valerie, développeur logiciel,
               avec une expertise en développement front-end et back-end,
-              passionné par la conception d&aposapplications modernes, performantes
-              et centrées sur l&aposutilisateur.
+              passionné par la conception d&apos;applications modernes, performantes
+              et centrées sur l&apos;utilisateur.
             </p>
             <div className="flex flex-row gap-6">
               <div className="rounded-sm overflow-hidden flex-1">
@@ -117,10 +97,10 @@ const AboutSection = () => {
               </div>
               <div className="flex-2 text-md flex flex-col gap-3">
                 <p>
-                  Au cours de mes projets académiques et personnels, j&aposai
+                  Au cours de mes projets académiques et personnels, j&apos;ai
                   développé des solutions complètes en utilisant des
                   technologies telles que React, Next.js, Node.js, TypeScript et
-                  ASP.NET Core. J&aposaccorde une importance particulière à la
+                  ASP.NET Core. J&apos;accorde une importance particulière à la
                   qualité du code, à la maintenabilité et au respect des bonnes
                   pratiques du développement logiciel.
                 </p>
@@ -128,7 +108,7 @@ const AboutSection = () => {
                   Je suis constamment à la recherche de nouveaux défis pour
                   améliorer mes compétences et rester à jour sur les dernières
                   technologies. Pour moi, chaque projet est une opportunité
-                  d&aposapprendre, de créer et de livrer de la valeur.
+                  d&apos;apprendre, de créer et de livrer de la valeur.
                 </p>
               </div>
             </div>

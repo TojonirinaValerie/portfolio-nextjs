@@ -38,21 +38,13 @@ const ProjectsSection = () => {
       image2: "/p32.png",
       color: "bg-[#F1EDE7]",
     },
-    // {
-    //   name: "Web",
-    //   description: "Commercial and personal stories true the art.",
-    //   image1: "/p11.png",
-    //   image2: "/p12.png",
-    //   color: "bg-emerald-200",
-    // },
   ];
   const { setProjectRef } = useStore();
   const project = useRef(null);
 
   useEffect(() => {
-    console.log(project);
     setProjectRef(project);
-  }, [project]);
+  }, [project, setProjectRef]);
 
   return (
     <div
@@ -67,11 +59,6 @@ const ProjectsSection = () => {
         </div>
       </div>
       <div className="w-full overflow-hidden pt-[300px]">
-        {/* <div className="w=full h-[250vh] bg-gray-500 rounded-t-full"></div>
-        <div className="w=full h-[250vh] -translate-y-[150vh] bg-amber-200 rounded-t-full"></div>
-        <div className="w=full h-[250vh] -translate-y-[300vh] bg-blue-300 rounded-t-full"></div>
-        <div className="w=full h-[150vh] -translate-y-[450vh] bg-emerald-200 rounded-t-full"></div> */}
-
         {projectList.map((projectItem, index) => {
           return (
             <ProjectItem
@@ -83,22 +70,6 @@ const ProjectsSection = () => {
           );
         })}
         <div className="w=full h-[10vw]"></div>
-        {/* <div className="w=full h-[50vw]">
-          <div className="w=full h-[250vh] bg-gray-500 rounded-t-full"></div>
-        </div>
-        <div className="w=full h-[100vh]">
-          <div className="w=full h-[250vh] bg-amber-200 rounded-t-full"></div>
-        </div>
-        <div className="w=full h-[100vh]">
-          <div className="w=full h-[250vh] bg-blue-300 rounded-t-full"></div>
-        </div>
-        <div className="w=full h-[100vh]">
-          <div className="w=full h-[250vh] bg-emerald-200 rounded-t-full"></div>
-        </div>
-        <div className="w=full h-[20vh]"></div> */}
-        {/* <div className="w=full h-[250vh] -translate-y-[75vh] bg-amber-200 rounded-t-full"></div> */}
-        {/* <div className="w=full h-[250vh] -translate-y-[300vh] bg-blue-300 rounded-t-full"></div>
-        <div className="w=full h-[150vh] -translate-y-[450vh] bg-emerald-200 rounded-t-full"></div> */}
       </div>
     </div>
   );

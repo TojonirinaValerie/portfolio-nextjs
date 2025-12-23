@@ -74,8 +74,8 @@ const ContactSection = () => {
             </h2>
             <p className="px-2 text-lg text-[#434343]">
               Je suis toujours ouvert à de nouvelles opportunités, projets ou
-              collaborations. Que vous ayez une idée, une question ou l’envie de
-              travailler ensemble, n’hésitez pas à me contacter.
+              collaborations. Que vous ayez une idée, une question ou l&apos;envie de
+              travailler ensemble, n&apos;hésitez pas à me contacter.
             </p>
           </div>
           <div className="flex flex-col w-[max-content]">
