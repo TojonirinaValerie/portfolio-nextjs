@@ -23,7 +23,7 @@ const ContactSection = () => {
   }, []);
 
   useEffect(() => {
-    let lt = gsap.timeline();
+    const lt = gsap.timeline();
 
     lt.from(sectionRef.current, {
       x: "40vw",

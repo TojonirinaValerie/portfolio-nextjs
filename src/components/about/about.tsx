@@ -4,6 +4,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef } from "react";
 import { useStore } from "@/store/store";
 
+gsap.registerPlugin(ScrollTrigger);
+
 const AboutSection = () => {
   const { setAboutRef } = useStore();
   const sectionRef = useRef(null);
@@ -30,7 +32,7 @@ const AboutSection = () => {
   }, []);
 
   useEffect(() => {
-    let lt = gsap.timeline();
+    const lt = gsap.timeline();
 
     lt.from(sectionRef.current, {
       x: "40vw",
@@ -100,8 +102,8 @@ const AboutSection = () => {
             <p className="font-medium text-lg">
               Je m'appelle TOJONIRINA Tsilavina Valerie, développeur logiciel,
               avec une expertise en développement front-end et back-end,
-              passionné par la conception d’applications modernes, performantes
-              et centrées sur l’utilisateur.
+              passionné par la conception d&aposapplications modernes, performantes
+              et centrées sur l&aposutilisateur.
             </p>
             <div className="flex flex-row gap-6">
               <div className="rounded-sm overflow-hidden flex-1">
@@ -115,10 +117,10 @@ const AboutSection = () => {
               </div>
               <div className="flex-2 text-md flex flex-col gap-3">
                 <p>
-                  Au cours de mes projets académiques et personnels, j’ai
+                  Au cours de mes projets académiques et personnels, j&aposai
                   développé des solutions complètes en utilisant des
                   technologies telles que React, Next.js, Node.js, TypeScript et
-                  ASP.NET Core. J’accorde une importance particulière à la
+                  ASP.NET Core. J&aposaccorde une importance particulière à la
                   qualité du code, à la maintenabilité et au respect des bonnes
                   pratiques du développement logiciel.
                 </p>
@@ -126,7 +128,7 @@ const AboutSection = () => {
                   Je suis constamment à la recherche de nouveaux défis pour
                   améliorer mes compétences et rester à jour sur les dernières
                   technologies. Pour moi, chaque projet est une opportunité
-                  d’apprendre, de créer et de livrer de la valeur.
+                  d&aposapprendre, de créer et de livrer de la valeur.
                 </p>
               </div>
             </div>

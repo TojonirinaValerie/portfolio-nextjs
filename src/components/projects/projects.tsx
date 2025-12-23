@@ -1,7 +1,4 @@
-import Image from "next/image";
-import { motion } from "framer-motion";
 import { gsap } from "gsap";
-
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
 import { useEffect, useRef } from "react";
@@ -22,23 +19,23 @@ const ProjectsSection = () => {
   const projectList: ProjectType[] = [
     {
       name: "AgroHelp Consulting",
-      description: "Commercial and personal stories true the art.",
+      description: "",
       image1: "/p11.png",
       image2: "/p12.png",
       color: "bg-[#FDE498]",
     },
     {
       name: "AllForOne Web site",
-      description: "Commercial and personal stories true the art.",
+      description: "",
       image1: "/p21.png",
       image2: "/p22.png",
       color: "bg-white",
     },
     {
       name: "Chat App",
-      description: "Commercial and personal stories true the art.",
-      image1: "/p11.png",
-      image2: "/p12.png",
+      description: "",
+      image1: "/p31.png",
+      image2: "/p32.png",
       color: "bg-[#F1EDE7]",
     },
     // {
