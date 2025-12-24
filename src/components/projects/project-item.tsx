@@ -6,12 +6,21 @@ import { gsap } from "gsap";
 
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
+import { Icon } from "@iconify/react/dist/iconify.js";
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const ProjectItem: React.FC<
   { index: number; length: number } & ProjectType
-> = ({ color, name, description, index, length, image1, image2 }) => {
+> = ({
+  color,
+  name,
+  description,
+  image1,
+  image2,
+  technologies,
+  url,
+}) => {
   const nameTitle = useRef(null);
   const image1Ref = useRef(null);
   const image2Ref = useRef(null);
@@ -35,6 +44,7 @@ const ProjectItem: React.FC<
       trigger: image1Ref.current,
       start: "top 100%",
       end: "top 60%",
+      // markers: true,
       toggleActions: "play none none reverse",
       scrub: true,
     };
@@ -85,47 +95,58 @@ const ProjectItem: React.FC<
     const box = boxRef.current;
 
     if (!box) return;
-    const handleMouseEnter = () => {
-      gsap.to(image1Ref.current, {
-        scale: 1.2, // zoom léger
-        rotation: -15, // rotation
-        duration: 0.3,
-        x: -120,
-        ease: "power2.out",
-      });
-      gsap.to(image2Ref.current, {
-        scale: 1.2, // zoom léger
-        rotation: 10, // rotation
-        duration: 0.3,
-        x: 120,
-        ease: "power2.out",
-      });
-    };
+    // const handleMouseEnter = () => {
+    //   gsap.to(image1Ref.current, {
+    //     scale: 1.2, // zoom léger
+    //     rotation: -15, // rotation
+    //     duration: 0.3,
+    //     x: -120,
+    //     ease: "power2.out",
+    //     // scrollTrigger: {
+    //     //   trigger: image2Ref.current,
+    //     //   start: "top 60%",
+    //     //   end: "top 30%",
+    //     //   markers: true,
+    //     // },
+    //   });
+    //   gsap.to(image2Ref.current, {
+    //     scale: 1.2, // zoom léger
+    //     rotation: 10, // rotation
+    //     duration: 0.3,
+    //     x: 120,
+    //     ease: "power2.out",
+    //     // scrollTrigger: {
+    //     //   trigger: image2Ref.current,
+    //     //   start: "top 60%",
+    //     //   end: "top 30%",
+    //     // },
+    //   });
+    // };
 
-    const handleMouseLeave = () => {
-      gsap.to(image1Ref.current, {
-        scale: 1,
-        rotation: -10,
-        duration: 0.3,
-        x: -60,
-        ease: "power2.out",
-      });
-      gsap.to(image2Ref.current, {
-        scale: 1,
-        rotation: 2,
-        duration: 0.3,
-        x: 60,
-        ease: "power2.out",
-      });
-    };
+    // const handleMouseLeave = () => {
+    //   gsap.to(image1Ref.current, {
+    //     scale: 1,
+    //     rotation: -10,
+    //     duration: 0.3,
+    //     x: -60,
+    //     ease: "power2.out",
+    //   });
+    //   gsap.to(image2Ref.current, {
+    //     scale: 1,
+    //     rotation: 2,
+    //     duration: 0.3,
+    //     x: 60,
+    //     ease: "power2.out",
+    //   });
+    // };
 
-    box.addEventListener("mouseenter", handleMouseEnter);
-    box.addEventListener("mouseleave", handleMouseLeave);
+    // box.addEventListener("mouseenter", handleMouseEnter);
+    // box.addEventListener("mouseleave", handleMouseLeave);
 
     // cleanup
     return () => {
-      box.removeEventListener("mouseenter", handleMouseEnter);
-      box.removeEventListener("mouseleave", handleMouseLeave);
+      // box.removeEventListener("mouseenter", handleMouseEnter);
+      // box.removeEventListener("mouseleave", handleMouseLeave);
     };
   }, []);
 
@@ -134,7 +155,7 @@ const ProjectItem: React.FC<
       <div className={`w=full h-[100vw] rounded-t-full ${color}`}>
         <div className="flex flex-row justify-center w-full">
           <div
-            className="relative flex flex-col justify-center items-center pt-[25vw] w-[max-content] cursor-pointer"
+            className="relative flex flex-col justify-center items-center pt-[25vw] w-[max-content]"
             ref={boxRef}
           >
             <Image
@@ -155,18 +176,43 @@ const ProjectItem: React.FC<
               alt=""
               ref={image2Ref}
             />
-            <p>
-              {index}/{length}
+            <p className="flex flex-row items-center justify-center gap-2">
+              {technologies.map((tech, i) => (
+                <span
+                  key={`${name}-techno-${tech}-${i}`}
+                  className="py-1 px-2 bg-black text-white rounded-full text-sm"
+                >
+                  {tech}
+                </span>
+              ))}
+              {/* {index}/{length} */}
             </p>
             <motion.h2
               ref={nameTitle}
-              className="text-[6rem] max-w-1/2 text-center leading-22 my-4"
+              className="text-[6rem] max-w-1/2 text-center leading-22 mb-4"
             >
               {name}
             </motion.h2>
             <p className="max-w-[200px] text-center text-[0.9rem]">
               {description}
             </p>
+            {url && (
+              <a
+                href={url}
+                target="_blank"
+                className="relative border border-black rounded-full text-md py-2 px-8 flex flex-row items-center gap-1 
+              cursor-pointer mt-2 group hover:text-white transition-all duration-700 overflow-hidden"
+              >
+                <span className="absolute top-0 left-[-200px] w-[200px] h-[100px] bg-black z-1 group-hover:left-0 transition-all duration-700"></span>
+                <span className="z-2">Voir</span>
+                <span
+                  className="z-2 w-0 opacity-0 overflow-hidden group-hover:block group-hover:w-7  group-hover:opacity-100 transition-all group-hover:text-white
+                duration-700 transform group-hover:translate-x-2 ease-in-out"
+                >
+                  <Icon icon="mdi-light:arrow-right" fontSize={30} />
+                </span>
+              </a>
+            )}
           </div>
         </div>
       </div>

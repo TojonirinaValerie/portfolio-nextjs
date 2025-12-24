@@ -2,12 +2,12 @@ import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef } from "react";
-import { useStore } from "@/store/store";
+import { useAppStore } from "@/store/store";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const AboutSection = () => {
-  const { setAboutRef } = useStore();
+  const { setAboutRef } = useAppStore();
   const sectionRef = useRef(null);
   const ligne = useRef(null);
   const about = useRef(null);

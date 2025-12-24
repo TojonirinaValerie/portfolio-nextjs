@@ -3,7 +3,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
 import { useEffect, useRef } from "react";
 import ProjectItem from "./project-item";
-import { useStore } from "@/store/store";
+import { useAppStore } from "@/store/store";
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
@@ -13,6 +13,8 @@ export type ProjectType = {
   image1: string;
   image2: string;
   color: string;
+  technologies: string[];
+  url: string;
 };
 
 const ProjectsSection = () => {
@@ -23,13 +25,8 @@ const ProjectsSection = () => {
       image1: "/p11.png",
       image2: "/p12.png",
       color: "bg-[#FDE498]",
-    },
-    {
-      name: "AllForOne Web site",
-      description: "",
-      image1: "/p21.png",
-      image2: "/p22.png",
-      color: "bg-white",
+      technologies: ["Angular", "React", "Node", "Postgres"],
+      url: ""
     },
     {
       name: "Chat App",
@@ -37,9 +34,20 @@ const ProjectsSection = () => {
       image1: "/p31.png",
       image2: "/p32.png",
       color: "bg-[#F1EDE7]",
+      technologies: ["React", "NodeJs", "MongoDb"],
+      url: "https://github.com/TojonirinaValerie/chat-app--front-react-ts"
+    },
+    {
+      name: "AllForOne Web site",
+      description: "",
+      image1: "/p21.png",
+      image2: "/p22.png",
+      color: "bg-white",
+      technologies: ["NextJs"],
+      url: "https://allforone.mg/fr"
     },
   ];
-  const { setProjectRef } = useStore();
+  const { setProjectRef } = useAppStore();
   const project = useRef(null);
 
   useEffect(() => {

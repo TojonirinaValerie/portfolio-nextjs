@@ -1,5 +1,6 @@
 "use client";
 // import DestructEffect from "@/components/destruct-effect";
+import "./style.css";
 import AboutSection from "@/components/about/about";
 import ContactSection from "@/components/contact/contacts";
 import GridOverlay from "@/components/grid-overlay";

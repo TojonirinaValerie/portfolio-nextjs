@@ -1,9 +1,9 @@
-import { useStore } from "@/store/store";
+import { useAppStore } from "@/store/store";
 import { gsap } from "gsap";
 import { useEffect, useRef } from "react";
 
 const Header = () => {
-  const { projectRef } = useStore();
+  const { projectRef } = useAppStore();
   const logoRef = useRef(null);
   const borderTopRRef = useRef(null);
   const borderBottomLRef = useRef(null);

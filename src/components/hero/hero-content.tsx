@@ -1,5 +1,6 @@
 import { Icon } from "@iconify/react";
 import { Button } from "../ui/button";
+import { useAppStore } from "@/store/store";
 
 export const socialLink = [
   {
@@ -35,6 +36,12 @@ export const socialLink = [
 ];
 
 const HeroContent = () => {
+  const { contactRef } = useAppStore();
+
+  const navigateToContact = () => {
+    if (contactRef?.current != null)
+      contactRef.current.scrollIntoView({ behavior: "smooth" });
+  };
   return (
     <main className=" text-white flex flex-col items-center justify-center h-full w-full border">
       <div className="flex flex-row gap-2 px-12 w-full max-w-lg">
@@ -53,6 +60,7 @@ const HeroContent = () => {
           <Button
             variant="primary"
             className="mt-10 text-base rounded-full px-8"
+            onClick={navigateToContact}
           >
             Contacter
           </Button>
