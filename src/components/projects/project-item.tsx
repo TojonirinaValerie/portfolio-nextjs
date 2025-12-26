@@ -33,7 +33,7 @@ const ProjectItem: React.FC<
       },
     });
 
-    mm.add("(min-width: 64rem)", () => {
+    // mm.add("(min-width: 64rem)", () => {
       const ImageScrollTriggerFromOption: gsap.DOMTarget | ScrollTrigger.Vars =
         {
           trigger: image1Ref.current,
@@ -85,7 +85,7 @@ const ProjectItem: React.FC<
           scrollTrigger: ImageScrollTriggerFromToOption,
         }
       );
-    });
+    // });
   }, []);
 
   useEffect(() => {
@@ -181,7 +181,6 @@ const ProjectItem: React.FC<
                 width={1000}
                 height={1000}
                 alt=""
-                ref={image1Ref}
               />
               <Image
                 src={`/assets/project-images${image2}`}
@@ -190,7 +189,6 @@ const ProjectItem: React.FC<
                 width={1000}
                 height={1000}
                 alt=""
-                ref={image2Ref}
               />
             </div>
             <p className="flex flex-row items-center justify-center gap-2">
