@@ -10,6 +10,7 @@ const ContactSection = () => {
   const contact = useRef(null);
   const ligne = useRef(null);
   const sectionRef = useRef(null);
+  const mm = gsap.matchMedia();
 
   const duration = 0.2;
   const delay = 0.01;
@@ -34,39 +35,41 @@ const ContactSection = () => {
   }, []);
 
   useEffect(() => {
-    const lt = gsap.timeline();
+    mm.add("(min-width: 64rem)", () => {
+      const lt = gsap.timeline();
 
-    lt.from(sectionRef.current, {
-      x: "40vw",
-      y: "200px",
-      opacity: 1,
-      // ease: "none",
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: "top 100%",
-        end: "top 50%",
-        // markers: true,
-        toggleActions: "play none none reverse",
-        scrub: true,
-      },
-    }).fromTo(
-      sectionRef.current,
-      {},
-      {
-        x: -100,
-        // y: -200,
+      lt.from(sectionRef.current, {
+        x: "40vw",
+        y: "200px",
         opacity: 1,
-        // ease: "power3.out",
+        // ease: "none",
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top 50%",
-          end: "bottom 0%",
+          start: "top 100%",
+          end: "top 50%",
           // markers: true,
           toggleActions: "play none none reverse",
           scrub: true,
         },
-      }
-    );
+      }).fromTo(
+        sectionRef.current,
+        {},
+        {
+          x: -100,
+          // y: -200,
+          opacity: 1,
+          // ease: "power3.out",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 50%",
+            end: "bottom 0%",
+            // markers: true,
+            toggleActions: "play none none reverse",
+            scrub: true,
+          },
+        }
+      );
+    });
   }, []);
   return (
     <div
@@ -74,21 +77,24 @@ const ContactSection = () => {
       ref={contact}
     >
       <div
-        className="flex flex-col justify-center max-w-[1200px] px-16 max-lg:w-[max-content]
+        className="flex flex-col justify-center max-w-[1200px] px-16 max-lg:[max-content]
         max-lg:px-8
         max-sm:px-4 "
         ref={sectionRef}
       >
-        <div className="w-full bg-black h-[2px] mb-6 " ref={ligne}></div>
+        <div
+          className="w-full max-w-[90vw] bg-black h-[2px] mb-6 "
+          ref={ligne}
+        ></div>
         <h1 className="flex flex-row items-center flex-1 uppercase px-2 font-medium">
           <span className="w-2 h-2 bg-black rounded-full mr-4"></span>Contact
         </h1>
         <div className="flex flex-row gap-14 justify-between max-lg:flex-col">
-          <div className="w-1/2">
-            <h2 className="px-2 text-[3rem] leading-14 font-medium my-4">
+          <div className="w-full">
+            <h2 className="px-2 text-[3rem] leading-14 font-medium my-4  max-md:text-4xl max-md:leading-12">
               Créons quelque chose de grand ensemble
             </h2>
-            <p className="px-2 text-lg text-[#434343]">
+            <p className="px-2 text-lg text-[#434343] max-md:text-md">
               Je suis toujours ouvert à de nouvelles opportunités, projets ou
               collaborations. Que vous ayez une idée, une question ou
               l&apos;envie de travailler ensemble, n&apos;hésitez pas à me
@@ -112,7 +118,7 @@ const ContactSection = () => {
                       <motion.div
                         initial={"initial"}
                         whileHover={"hovered"}
-                        className="text-[1.6rem] relative block overflow-hidden whitespace-nowrap h-[max-content] font-medium leading-8"
+                        className="text-[1.6rem] relative block overflow-hidden whitespace-nowrap h-[max-content] font-medium leading-8 max-md:text-md"
                       >
                         <div>
                           {pseudo.split("").map((l, i) => {
@@ -157,63 +163,7 @@ const ContactSection = () => {
                           })}
                         </div>
                       </motion.div>
-                      {/* <motion.div
-                        initial={"initial"}
-                        whileHover={"hovered"}
-                        className="text-[1.6rem] relative block overflow-hidden whitespace-nowrap h-[max-content] uppercase font-medium"
-                      >
-                        <motion.div
-                          variants={{
-                            initial: { y: 0 },
-                            hovered: { y: "-100%" },
-                          }}
-                        >
-                          <span className="h-[max-content] uppercase font-medium">
-                            {pseudo}
-                          </span>
-                        </motion.div>
-                        <motion.div
-                          className="absolute inset-0"
-                          variants={{
-                            initial: { y: "100%" },
-                            hovered: { y: 0 },
-                          }}
-                        >
-                          <span className="h-[max-content] uppercase font-medium">
-                            {pseudo}
-                          </span>
-                        </motion.div>
-                      </motion.div> */}
                     </a>
-                    {/* <motion.a
-                      initial={"initial"}
-                      whileHover={"hovered"}
-                      href={url}
-                      target="_blank"
-                      className="text-[1.6rem] relative block overflow-hidden whitespace-nowrap"
-                    >
-                      <motion.div
-                        variants={{
-                          initial: { y: 0 },
-                          hovered: { y: "-100%" },
-                        }}
-                      >
-                        <span className="h-[max-content] uppercase font-medium">
-                          {pseudo}
-                        </span>
-                      </motion.div>
-                      <motion.div
-                      className="absolute inset-0"
-                        variants={{
-                          initial: { y: "100%" },
-                          hovered: { y: 0 },
-                        }}
-                      >
-                        <span className="h-[max-content] uppercase font-medium">
-                          {pseudo}
-                        </span>
-                      </motion.div>
-                    </motion.a> */}
                   </li>
                 );
               })}

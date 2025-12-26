@@ -12,19 +12,12 @@ gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const ProjectItem: React.FC<
   { index: number; length: number } & ProjectType
-> = ({
-  color,
-  name,
-  description,
-  image1,
-  image2,
-  technologies,
-  url,
-}) => {
+> = ({ color, name, description, image1, image2, technologies, url }) => {
   const nameTitle = useRef(null);
   const image1Ref = useRef(null);
   const image2Ref = useRef(null);
   const boxRef = useRef<HTMLDivElement>(null);
+  const mm = gsap.matchMedia();
 
   useEffect(() => {
     gsap.from(nameTitle.current, {
@@ -40,16 +33,19 @@ const ProjectItem: React.FC<
       },
     });
 
-    const ImageScrollTriggerFromOption: gsap.DOMTarget | ScrollTrigger.Vars = {
-      trigger: image1Ref.current,
-      start: "top 100%",
-      end: "top 60%",
-      // markers: true,
-      toggleActions: "play none none reverse",
-      scrub: true,
-    };
-    const ImageScrollTriggerFromToOption: gsap.DOMTarget | ScrollTrigger.Vars =
-      {
+    mm.add("(min-width: 64rem)", () => {
+      const ImageScrollTriggerFromOption: gsap.DOMTarget | ScrollTrigger.Vars =
+        {
+          trigger: image1Ref.current,
+          start: "top 100%",
+          end: "top 60%",
+          // markers: true,
+          toggleActions: "play none none reverse",
+          scrub: true,
+        };
+      const ImageScrollTriggerFromToOption:
+        | gsap.DOMTarget
+        | ScrollTrigger.Vars = {
         trigger: image1Ref.current,
         start: "top 5%",
         end: "bottom 0%",
@@ -58,37 +54,38 @@ const ProjectItem: React.FC<
         scrub: true,
       };
 
-    gsap.from(image1Ref.current, {
-      y: 100,
-      rotation: -20,
-      scrollTrigger: ImageScrollTriggerFromOption,
-    });
-    gsap.from(image2Ref.current, {
-      y: 200,
-      rotation: 6,
-      scrollTrigger: ImageScrollTriggerFromOption,
-    });
-
-    gsap.fromTo(
-      image1Ref.current,
-      {},
-      {
-        y: -100,
-        x: -100,
+      gsap.from(image1Ref.current, {
+        y: 100,
         rotation: -20,
-        scrollTrigger: ImageScrollTriggerFromToOption,
-      }
-    );
-    gsap.fromTo(
-      image2Ref.current,
-      {},
-      {
-        y: -100,
-        x: 100,
+        scrollTrigger: ImageScrollTriggerFromOption,
+      });
+      gsap.from(image2Ref.current, {
+        y: 200,
         rotation: 6,
-        scrollTrigger: ImageScrollTriggerFromToOption,
-      }
-    );
+        scrollTrigger: ImageScrollTriggerFromOption,
+      });
+
+      gsap.fromTo(
+        image1Ref.current,
+        {},
+        {
+          y: -100,
+          x: -100,
+          rotation: -20,
+          scrollTrigger: ImageScrollTriggerFromToOption,
+        }
+      );
+      gsap.fromTo(
+        image2Ref.current,
+        {},
+        {
+          y: -100,
+          x: 100,
+          rotation: 6,
+          scrollTrigger: ImageScrollTriggerFromToOption,
+        }
+      );
+    });
   }, []);
 
   useEffect(() => {
@@ -151,17 +148,17 @@ const ProjectItem: React.FC<
   }, []);
 
   return (
-    <div className="w=full h-[50vw]">
-      <div className={`w=full h-[100vw] rounded-t-full ${color}`}>
+    <div className="w-full h-[50vw] max-lg:h-[50vh] max-lg:min-h-[500px]">
+      <div className={`w-full h-[100vw] rounded-t-full ${color} max-lg:h-[100vh] max-lg:rounded-none`}>
         <div className="flex flex-row justify-center w-full">
           <div
-            className="relative flex flex-col justify-center items-center pt-[25vw] w-[max-content]"
+            className="lg:relative flex flex-col justify-center items-center pt-[23vw] w-[max-content] max-[1200px]:w-full max-lg:pt-[0]"
             ref={boxRef}
           >
             <Image
               src={`/assets/project-images${image1}`}
               className="w-[18vw] max-w-[300px] h-[auto] absolute object-cover rounded-xl 
-              top-[-120px] -rotate-[10deg] z-2 translate-x-[-60px] "
+                top-[-120px] -rotate-[10deg] z-2 translate-x-[-60px] max-lg:hidden"
               width={1000}
               height={1000}
               alt=""
@@ -170,12 +167,32 @@ const ProjectItem: React.FC<
             <Image
               src={`/assets/project-images${image2}`}
               className="w-[18vw] max-w-[300px] h-[auto] absolute object-cover rounded-xl
-              top-[-120px] rotate-[2deg] z-1 translate-x-[60px] translate-y-[80px]"
+                top-[-120px] rotate-[2deg] z-1 translate-x-[60px] translate-y-[80px]  max-lg:hidden"
               width={1000}
               height={1000}
               alt=""
               ref={image2Ref}
             />
+            <div className="lg:hidden relative mb-6">
+              <Image
+                src={`/assets/project-images${image1}`}
+                className="w-[18vw] max-w-[300px] min-w-[150px] h-[auto] object-cover rounded-xl top-0 absolute
+                 -rotate-[10deg] z-2 translate-x-[-60px] "
+                width={1000}
+                height={1000}
+                alt=""
+                ref={image1Ref}
+              />
+              <Image
+                src={`/assets/project-images${image2}`}
+                className="w-[18vw] max-w-[300px] min-w-[150px] h-[auto] object-cover rounded-xl 
+                 rotate-[2deg] z-1 translate-x-[60px]"
+                width={1000}
+                height={1000}
+                alt=""
+                ref={image2Ref}
+              />
+            </div>
             <p className="flex flex-row items-center justify-center gap-2">
               {technologies.map((tech, i) => (
                 <span
@@ -189,7 +206,7 @@ const ProjectItem: React.FC<
             </p>
             <motion.h2
               ref={nameTitle}
-              className="text-[6rem] max-w-1/2 text-center leading-22 mb-4"
+              className="text-[6rem] max-w-1/2 text-center leading-22 mb-4 max-[1300px]:text-[3rem] max-[1300px]:leading-12 max-[1300px]:mt-2 max-[1200px]:max-w-[full]"
             >
               {name}
             </motion.h2>

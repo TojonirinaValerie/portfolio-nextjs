@@ -60,14 +60,14 @@ const ProjectsSection = () => {
       className="w-full min-h-screen flex flex-col items-center "
       ref={project}
     >
-      <div className=" max-w-lg">
+      <div className="max-w-lg">
         <div className="flex flex-col items-center py-20">
           <h1 className="text-[5rem] text-center max-lg:text-[3rem] max-md:text-3xl">
             Quelques-unes de mes réalisations
           </h1>
         </div>
       </div>
-      <div className="w-full overflow-hidden pt-[300px]">
+      <div className="w-full overflow-hidden pt-[300px] max-lg:pt-[100px]">
         {projectList.map((projectItem, index) => {
           return (
             <ProjectItem
