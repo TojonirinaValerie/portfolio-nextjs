@@ -20,31 +20,32 @@ export type ProjectType = {
 const ProjectsSection = () => {
   const projectList: ProjectType[] = [
     {
-      name: "AgroHelp Consulting",
-      description: "",
-      image1: "/p11.png",
-      image2: "/p12.png",
-      color: "bg-[#FDE498]",
-      technologies: ["Angular", "React", "Node", "Postgres"],
-      url: ""
-    },
-    {
       name: "Chat App",
       description: "",
       image1: "/p31.png",
       image2: "/p32.png",
+      // color: "bg-[#FDE498]",
       color: "bg-[#F1EDE7]",
       technologies: ["React", "NodeJs", "MongoDb"],
-      url: "https://github.com/TojonirinaValerie/chat-app--front-react-ts"
+      url: "https://github.com/TojonirinaValerie/chat-app--front-react-ts",
+    },
+    {
+      name: "AgroHelp Consulting",
+      description: "",
+      image1: "/p11.png",
+      image2: "/p12.png",
+      color: "bg-white",
+      technologies: ["Angular", "React", "Node", "Postgres"],
+      url: "https://github.com/TojonirinaValerie/AgroHelp/tree/main/front-office",
     },
     {
       name: "AllForOne Web site",
       description: "",
       image1: "/p21.png",
       image2: "/p22.png",
-      color: "bg-white",
+      color: "bg-[#F1EDE7]",
       technologies: ["NextJs"],
-      url: "https://allforone.mg/fr"
+      url: "https://allforone.mg/fr",
     },
   ];
   const { setProjectRef } = useAppStore();
@@ -61,7 +62,7 @@ const ProjectsSection = () => {
     >
       <div className=" max-w-lg">
         <div className="flex flex-col items-center py-20">
-          <h1 className="text-[5rem] text-center">
+          <h1 className="text-[5rem] text-center max-lg:text-[3rem] max-md:text-3xl">
             Quelques-unes de mes réalisations
           </h1>
         </div>

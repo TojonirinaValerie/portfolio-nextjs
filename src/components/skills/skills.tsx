@@ -18,7 +18,7 @@ const SkillsSection = () => {
     { name: "HTML5", icon: "/HTML5.svg" },
     { name: "JavaScript", icon: "/JavaScript.svg" },
     { name: "MongoDB", icon: "/MongoDB.svg" },
-    { name: "Net core", icon: "/Net core.svg" },
+    { name: "Net core", icon: "/Net_core.svg" },
     { name: "PostgresSQL", icon: "/PostgresSQL.svg" },
     { name: "TypeScript", icon: "/TypeScript.svg" },
   ];
@@ -48,10 +48,12 @@ const SkillsSection = () => {
 
   return (
     <>
-      <div className="flex flex-col justify-center items-center py-20 h-screen">
+      <div className="flex flex-col justify-center items-center py-20 min-h-screen 
+      max-lg:px-8
+      max-sm:px-4">
         <div className="flex flex-col items-center gap-4">
-          <h1 className="text-7xl font-medium text-center">Mes competence</h1>
-          <p className="text-xl max-w-[800px] text-center text-gray-700">
+          <h1 className="text-7xl font-medium text-center max-lg:text-[3rem] max-md:text-3xl">Mes competence</h1>
+          <p className="text-xl max-w-[800px] text-center text-gray-700 max-lg:text-lg max-md:text-md">
             Mon stack technique évolue avec les tendances du web. Voici les
             outils que j&apos;utilise au quotidien.
           </p>

@@ -11,6 +11,7 @@ const AboutSection = () => {
   const sectionRef = useRef(null);
   const ligne = useRef(null);
   const about = useRef(null);
+  const mm = gsap.matchMedia();
 
   useEffect(() => {
     setAboutRef(about);
@@ -31,62 +32,68 @@ const AboutSection = () => {
   }, []);
 
   useEffect(() => {
-    const lt = gsap.timeline();
+    mm.add("(min-width: 64rem)", () => {
+      const lt = gsap.timeline();
 
-    lt.from(sectionRef.current, {
-      x: "40vw",
-      y: "200px",
-      opacity: 1,
-      // ease: "none",
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: "top 100%",
-        end: "top 50%",
-        // markers: true,
-        toggleActions: "play none none reverse",
-        scrub: true,
-      },
-    }).fromTo(
-      sectionRef.current,
-      {},
-      {
-        x: -100,
-        // y: -200,
+      lt.from(sectionRef.current, {
+        x: "40vw",
+        y: "200px",
         opacity: 1,
-        // ease: "power3.out",
+        // ease: "none",
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top 50%",
-          end: "bottom 0%",
+          start: "top 100%",
+          end: "top 50%",
           // markers: true,
           toggleActions: "play none none reverse",
           scrub: true,
         },
-      }
-    );
+      }).fromTo(
+        sectionRef.current,
+        {},
+        {
+          x: -100,
+          // y: -200,
+          opacity: 1,
+          // ease: "power3.out",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 50%",
+            end: "bottom 0%",
+            // markers: true,
+            toggleActions: "play none none reverse",
+            scrub: true,
+          },
+        }
+      );
+    });
   }, []);
 
   return (
     <section
-      className="w-full min-h-screen flex flex-row items-center justify-center"
+      className="w-full min-h-screen flex flex-row items-center justify-center py-20
+      max-lg:px-8
+      max-sm:px-4 "
       ref={about}
     >
       <div className="flex flex-col w-full max-w-lg" ref={sectionRef}>
         <div className="w-full bg-black h-[2px]" ref={ligne}></div>
-        <div className="flex flex-row items-start w-full max-w-lg mt-6 gap-4">
+        <div className="flex flex-row items-start w-full max-w-lg mt-6 gap-4
+        max-md:flex-col">
           <h2 className="flex flex-row items-center flex-1 uppercase px-2 font-medium">
             <span className="w-2 h-2 bg-black rounded-full mr-4"></span>A propos
             de moi
           </h2>
           <article className="flex flex-col flex-2 gap-10">
             <p className="font-medium text-lg">
-              Je m&apos;appelle TOJONIRINA Tsilavina Valerie, développeur logiciel,
-              avec une expertise en développement front-end et back-end,
-              passionné par la conception d&apos;applications modernes, performantes
-              et centrées sur l&apos;utilisateur.
+              Je m&apos;appelle TOJONIRINA Tsilavina Valerie, développeur
+              logiciel, avec une expertise en développement front-end et
+              back-end, passionné par la conception d&apos;applications
+              modernes, performantes et centrées sur l&apos;utilisateur.
             </p>
             <div className="flex flex-row gap-6">
-              <div className="rounded-sm overflow-hidden flex-1">
+              <div className="rounded-sm overflow-hidden flex-1 
+              max-lg:hidden">
                 <Image
                   src="/assets/me1.png"
                   alt=""

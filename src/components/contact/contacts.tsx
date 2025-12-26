@@ -70,18 +70,20 @@ const ContactSection = () => {
   }, []);
   return (
     <div
-      className="w-full h-screen flex flex-col justify-center items-center"
+      className="w-full min-h-screen flex flex-col justify-center items-center py-20"
       ref={contact}
     >
       <div
-        className="flex flex-col justify-center max-w-[1200px]"
+        className="flex flex-col justify-center max-w-[1200px] px-16 max-lg:w-[max-content]
+        max-lg:px-8
+        max-sm:px-4 "
         ref={sectionRef}
       >
-        <div className="w-full bg-black h-[2px] mb-6" ref={ligne}></div>
+        <div className="w-full bg-black h-[2px] mb-6 " ref={ligne}></div>
         <h1 className="flex flex-row items-center flex-1 uppercase px-2 font-medium">
           <span className="w-2 h-2 bg-black rounded-full mr-4"></span>Contact
         </h1>
-        <div className="flex flex-row gap-14 justify-between">
+        <div className="flex flex-row gap-14 justify-between max-lg:flex-col">
           <div className="w-1/2">
             <h2 className="px-2 text-[3rem] leading-14 font-medium my-4">
               Créons quelque chose de grand ensemble

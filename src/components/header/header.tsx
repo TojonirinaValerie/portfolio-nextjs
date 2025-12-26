@@ -3,23 +3,23 @@ import { gsap } from "gsap";
 import { useEffect, useRef } from "react";
 
 const Header = () => {
-  const { projectRef } = useAppStore();
+  const { projectRef, aboutRef } = useAppStore();
   const logoRef = useRef(null);
   const borderTopRRef = useRef(null);
   const borderBottomLRef = useRef(null);
 
   useEffect(() => {
-    if (!projectRef) return;
-
-    console.log(projectRef);
+    if (!aboutRef) return;
 
     gsap.to(logoRef.current, {
-      background: "#00000000",
+      // background: "#00000000",
+      opacity: 0,
+      // display: "none",
       // ease: "back.out",
       scrollTrigger: {
-        trigger: projectRef.current,
+        trigger: aboutRef.current,
         start: "top 0%",
-        end: "top 5%",
+        end: "5% 0%",
         // markers: true,
         toggleActions: "play none none reverse",
         scrub: true,
@@ -27,9 +27,10 @@ const Header = () => {
     });
     gsap.to(borderTopRRef.current, {
       boxShadow: "none",
+      opacity: 0,
       // ease: "back.out",
       scrollTrigger: {
-        trigger: projectRef.current,
+        trigger: aboutRef.current,
         start: "top 0%",
         end: "top 5%",
         // markers: true,
@@ -39,9 +40,10 @@ const Header = () => {
     });
     gsap.to(borderBottomLRef.current, {
       boxShadow: "none",
+      opacity: 0,
       // ease: "back.out",
       scrollTrigger: {
-        trigger: projectRef.current,
+        trigger: aboutRef.current,
         start: "top 0%",
         end: "top 5%",
         // markers: true,
@@ -51,7 +53,7 @@ const Header = () => {
     });
   }, [projectRef]);
   return (
-    <header className="fixed top-4 z-50 w-full flex flex-row justify-between text-white text-4xl px-4">
+    <header className="fixed top-4 z-50 w-full flex flex-row justify-between text-white text-4xl px-4 max-md:text-lg">
       <div
         className="flex flex-row relative skew-x-[-6deg] -translate-x-[5px] bg-background p-5 px-6 rounded-br-[10px]"
         ref={logoRef}

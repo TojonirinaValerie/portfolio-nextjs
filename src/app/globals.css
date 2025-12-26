@@ -2,6 +2,18 @@
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
+@custom-variant max-h-sm {
+  @media(max-height:650px) {
+    @slot;
+  }
+}
+@custom-variant min-h-sm {
+  @media(min-height:650px) {
+    @slot;
+  }
+}
+/* @custom-media --h-md (min-height: 601px) and (max-height: 800px);
+@custom-media --h-lg (min-height: 801px); */
 
 @theme inline {
   --color-background: var(--background);
@@ -158,4 +170,3 @@
     transform: rotate(0deg);
   }
 }
-
