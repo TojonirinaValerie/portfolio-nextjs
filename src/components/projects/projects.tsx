@@ -36,7 +36,7 @@ const ProjectsSection = () => {
       image2: "/p12.png",
       color: "bg-white",
       technologies: ["Angular", "React", "Node", "Postgres"],
-      url: "https://github.com/TojonirinaValerie/AgroHelp/tree/main/front-office",
+      url: "https://github.com/TojonirinaValerie/agrohelp-consulting",
     },
     {
       name: "AllForOne Web site",
