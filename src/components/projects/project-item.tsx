@@ -17,7 +17,7 @@ const ProjectItem: React.FC<
   const image1Ref = useRef(null);
   const image2Ref = useRef(null);
   const boxRef = useRef<HTMLDivElement>(null);
-  const mm = gsap.matchMedia();
+  // const mm = gsap.matchMedia();
 
   useEffect(() => {
     gsap.from(nameTitle.current, {
